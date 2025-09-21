@@ -61,9 +61,14 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
+  // Listen for the custom event from Scroll.astro
+  window.addEventListener("loco-scroll", (event) => {
+    // TypeScript users: 'event.detail' is not directly accessible on a generic Event.
+    // Use type assertion to access custom properties.
+    const scrollPosition = (event as CustomEvent).detail.scrollPosition;
     const header = document.getElementById("header");
-    if (window.scrollY > 100) {
+
+    if (scrollPosition > 100) {
       header?.classList.add("bg-white/80", "backdrop-blur-sm");
     } else {
       header?.classList.remove("bg-white/80", "backdrop-blur-sm");

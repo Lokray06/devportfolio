@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'IBM Plex Mono', monospace;
+  min-height: 100%;
 }

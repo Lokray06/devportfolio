@@ -1,91 +1,135 @@
 export const siteConfig = {
-  name: "Ryan Fitzgerald",
-  title: "Senior Software Engineer",
-  description: "Portfolio website of Ryan Fitzgerald",
+  name: "Juanpa",
+  title: "Programmer | Fullstack student",
+  description: "Portfolio website of Juanpa",
   accentColor: "#1d4ed8",
   social: {
-    email: "your-email@example.com",
+    email: "contact@jpgp.es",
     linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "https://x.com/rfitzio",
-    github: "https://github.com/RyanFitzgerald",
+    github: "https://github.com/Lokray06",
   },
   aboutMe:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos asperiores nihil consequatur tempore cupiditate architecto natus commodi corrupti quas quasi facere est, dignissimos odit nam veniam sapiente ut, vitae eligendi ipsum dolor, nostrum ullam impedit! Corrupti ratione mollitia temporibus necessitatibus, consectetur reiciendis recusandae id, dolorum quaerat, vero pariatur. Ratione!",
-  skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
+    "Im a 19yo fullstack student based in Spain. But doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc.",
+  skills: [
+    { name: "Java", experienceYears: 2 },
+    { name: "C#", experienceYears: 3 },
+    { name: "Linux systems", experienceYears: 3 },
+    { name: "Python", experienceYears: 3 }
+  ],
   projects: [
     {
-      name: "AI Dev Roundup Newsletter",
+      category: "Personal",
+      status: "In development",
+      name: "Nebula",
       description:
-        "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
-      link: "https://aidevroundup.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "An object-oriented programming language with a custom compiler that translates source code to LLVM IR. As an exploration into language design, Nebula combines a clean, high-level syntax—inspired by languages like Java and C#—with the goal of achieving native performance without a heavy virtual machine.",
+      link: "https://github.com/Lokray06/nebula",
+      skills: ["Java", "LLVM", "C++"],
     },
+
+    // Minocraft
     {
-      name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
+      category: "Personal",
+      status: "In development",
+      name: "Minocraft",
       description:
-        "Master the art of building production-ready, full-stack Chrome Extensions using modern web technologies and best practices",
-      link: "https://fullstackextensions.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "A custom-built Minecraft-style voxel engine in Java using LWJGL. The project focuses on optimizing core mechanics to achieve higher performance than the original game, while replicating its a block-based sandbox environment.",
+      link: "https://github.com/Lokray06/Minocraft",
+      skills: ["Java", "OpenGL"],
     },
+
+    // CRIS
     {
-      name: "ExtensionKit",
+      category: "Personal",
+      status: "Completed",
+      name: "CRIS",
       description:
-        "Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates & examples",
-      link: "https://extensionkit.io/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "A Python-based steganography tool that securely hides and retrieves files within images using RSA encryption. The project demonstrates a method for encrypting a data-shuffling seed to ensure secure retrieval.",
+      link: "https://github.com/Lokray06/CRIS",
+      skills: ["Python", "Cryptography", "Steganography"],
+    },
+
+    // Arcane
+    {
+      category: "Personal",
+      status: "In development",
+      name: "Arcane",
+      description:
+        "A 3D game engine built from scratch in Java with LWJGL. The engine features a custom entity-component system and real-time rendering, providing a lightweight framework for game development.",
+      link: "https://github.com/Lokray06/Arcane",
+      skills: ["Java", "OpenGL", "LWJGL", "GLSL"],
+    },
+    // ENCASA App Suite
+    {
+      category: "Professional",
+      status: "Completed",
+      name: "ENCASA App Suite",
+      description:
+        "Led the development of a custom 3-app suite to streamline the company's incident tracking and management process. The solution integrated with existing company data sources and provided a RESTful API for external data visualization.",
+      link: "NotPublic",
+      skills: ["AutoHotkey", "PHP", "VBA", "APIs"],
+    },
+    // EPI Automation
+    {
+      category: "Professional",
+      status: "Completed",
+      name: "EPI Automation App",
+      description:
+        "Engineered a local server application using web technologies to automate the process of issuing personal protective equipment (PPE) to employees. The system auto-generates and digitally signs PDF records, streamlining a critical business process.",
+      link: "NotPublic",
+      skills: ["HTML", "CSS", "JavaScript", "PHP", "PDF-Lib"],
     },
   ],
   experience: [
     {
-      company: "Tech Company",
-      title: "Senior Software Engineer",
-      dateRange: "Jan 2022 - Present",
+      company: "ENCASA",
+      title: "Systems Developer",
+      dateRange: "Jun 2024 - Aug 2024",
       bullets: [
-        "Led development of microservices architecture serving 1M+ users",
-        "Reduced API response times by 40% through optimization",
-        "Mentored team of 5 junior developers",
+        "Built and maintained a custom application suite to manage internal incident reports, supplier communications, and quality control",
+        "Leveraged existing company data in Excel to build a primary data source for a suite of applications, ensuring data continuity and accessibility",
+        "Developed a local server application using web technologies to automate the process of signing and generating PDF documents for worker PPE"
       ],
     },
     {
-      company: "Startup Inc",
-      title: "Full Stack Developer",
-      dateRange: "Jun 2020 - Dec 2021",
+      company: "ENCASA (Internship)",
+      title: "Systems Developer Intern",
+      dateRange: "May 2024 - Jun 2024",
       bullets: [
-        "Built and launched MVP product from scratch using React and Node.js",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Collaborated with product team to define technical requirements",
+        "Led the development of a 3-app suite to streamline the company's INC tracking process, from registration to supplier reporting",
+        "Architected a solution that integrated with the company's legacy data systems and provided a RESTful API for external data visualization",
+        "Implemented new features and continued to expand the application's functionality based on evolving business needs"
       ],
     },
     {
-      company: "Digital Agency",
-      title: "Frontend Developer",
-      dateRange: "Aug 2018 - May 2020",
+      company: "Vinilo sevilla S.L. (Internship)",
+      title: "Networking Intern",
+      dateRange: "May 2022 - Jul 2022",
       bullets: [
-        "Developed responsive web applications for 20+ clients",
-        "Improved site performance scores by 35% on average",
-        "Introduced modern JavaScript frameworks to legacy codebases",
+        "Developed the company website with Wordpress",
+        "Independently maintained the company's network infrastructure",
+        "Developed some Python automation apps for the company's SEO, and local positioning",
+        "Gained extensive experience in vinyl installation through multiple projects for clients like Shell, Real Maestranza de Sevilla, Real Club El Mercantil, and many more",
       ],
     },
   ],
   education: [
     {
-      school: "University Name",
-      degree: "Bachelor of Science in Computer Science",
-      dateRange: "2014 - 2018",
+      school: "Altair | ES",
+      degree: "Vocational Training in Microcomputer Systems and Networks (Intermediate Level)",
+      dateRange: "22/23 - 23/24",
       achievements: [
-        "Graduated Magna Cum Laude with 3.8 GPA",
-        "Dean's List all semesters",
-        "President of Computer Science Club",
+        "Graduated with 9.2",
+        "Delegate representing all the school's vocational training students",
       ],
     },
     {
-      school: "Online Platform",
+      school: "Altair | ES",
       degree: "Full Stack Development Certificate",
-      dateRange: "2019",
+      dateRange: "24/25 - Current",
       achievements: [
-        "Completed 500+ hours of coursework",
-        "Built 10+ portfolio projects",
-        "Specialized in React and Node.js",
+        "Completed first year with an average grade of 9.8, demonstrating a strong grasp of core concepts",
+        "Appointed by professors to mentor younger students, assisting them with coursework and improving their understanding of complex topics"
       ],
     },
   ],

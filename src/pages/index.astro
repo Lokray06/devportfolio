@@ -7,6 +7,7 @@ import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config";
+import Scroll from "../components/Scroll.astro";
 import "../styles/global.css";
 ---
 
@@ -27,13 +28,16 @@ import "../styles/global.css";
   </head>
   <body>
     <Header />
-    <section>
-      <Hero />
-      <About />
-      <Projects />
-      <Experience />
-      <Education />
-    </section>
-    <Footer />
+    <div data-scroll-container>
+      <section>
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Education />
+      </section>
+      <Footer />
+    </div>
+    <Scroll />
   </body>
 </html>

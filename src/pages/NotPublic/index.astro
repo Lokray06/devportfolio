@@ -1,0 +1,35 @@
+---
+import { siteConfig } from "../../config";
+import "../../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{siteConfig.name} - Redacted</title>
+  </head>
+  <body>
+    <main class="flex flex-col items-center justify-center min-h-screen px-4 py-20 text-center">
+      <h1 class="mb-4 text-4xl font-bold">Project Information Redacted</h1>
+      <p class="max-w-prose">
+        This project is not available for public viewing. It contains
+        proprietary company information and sensitive data that cannot be
+        shared. For a detailed overview of my contributions and the project's
+        technical scope, please refer to the description provided in my portfolio.
+      </p>
+      <button class="mt-8 bg-neutral-950 text-neutral-100 p-4 rounded-2xl font-medium hover:font-bold hover:bg-neutral-800 transition-all">
+        <a href=".">Go back to the portfolio</a>
+      </button>
+    </main>
+  </body>
+</html>
