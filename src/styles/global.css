@@ -5,6 +5,55 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Cascadia Code', monospace;
   min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
 }
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+main {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.font-nebula{
+  font-family: 'Poly Sans', sans-serif;
+}
+
+@font-face {
+  font-family: 'Poly Sans';
+  src: url('/fonts/polysanstrial-bulky.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url('/fonts/CascadiaCode-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url('/fonts/CascadiaCode-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url('/fonts/CascadiaCode-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Add more weights/styles if you want */

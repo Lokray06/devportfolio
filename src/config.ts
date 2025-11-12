@@ -9,12 +9,13 @@ export const siteConfig = {
     github: "https://github.com/Lokray06",
   },
   aboutMe:
-    "Im a 19yo fullstack student based in Spain. But doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc.",
+    "I'm a 19yo fullstack student based in Spain. But that doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc.",
   skills: [
-    { name: "Java", experienceYears: 2 },
-    { name: "C#", experienceYears: 3 },
-    { name: "Linux systems", experienceYears: 3 },
-    { name: "Python", experienceYears: 3 }
+    { name: "English", experienceYears: "C1" },
+    { name: "Java", experienceYears: "2y" },
+    { name: "C#", experienceYears: "3y" },
+    { name: "Linux systems", experienceYears: "3y" },
+    { name: "Python", experienceYears: "3y" }
   ],
   projects: [
     {
@@ -23,21 +24,19 @@ export const siteConfig = {
       name: "Nebula",
       description:
         "An object-oriented programming language with a custom compiler that translates source code to LLVM IR. As an exploration into language design, Nebula combines a clean, high-level syntax—inspired by languages like Java and C#—with the goal of achieving native performance without a heavy virtual machine.",
-      link: "https://github.com/Lokray06/nebula",
+      link: "https://github.com/Lokray06/nebula-lang",
       skills: ["Java", "LLVM", "C++"],
     },
-
     // Minocraft
     {
       category: "Personal",
-      status: "In development",
+      status: "Inactive",
       name: "Minocraft",
       description:
-        "A custom-built Minecraft-style voxel engine in Java using LWJGL. The project focuses on optimizing core mechanics to achieve higher performance than the original game, while replicating its a block-based sandbox environment.",
+        "A custom-built Minecraft-style voxel engine in Java using LWJGL. The project focuses on optimizing core mechanics to achieve higher performance than the original game, while replicating its block-based sandbox environment.",
       link: "https://github.com/Lokray06/Minocraft",
       skills: ["Java", "OpenGL"],
     },
-
     // CRIS
     {
       category: "Personal",
@@ -48,7 +47,6 @@ export const siteConfig = {
       link: "https://github.com/Lokray06/CRIS",
       skills: ["Python", "Cryptography", "Steganography"],
     },
-
     // Arcane
     {
       category: "Personal",
@@ -86,7 +84,7 @@ export const siteConfig = {
       title: "Systems Developer",
       dateRange: "Jun 2024 - Aug 2024",
       bullets: [
-        "Built and maintained a custom application suite to manage internal incident reports, supplier communications, and quality control",
+        "Single-handedly built and maintained a custom application suite to manage internal incident reports, supplier communications, and quality control",
         "Leveraged existing company data in Excel to build a primary data source for a suite of applications, ensuring data continuity and accessibility",
         "Developed a local server application using web technologies to automate the process of signing and generating PDF documents for worker PPE"
       ],

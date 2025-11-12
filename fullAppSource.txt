@@ -1,0 +1,1347 @@
+--- Directory Tree for: src ---
+Located at: /home/juanpa/dev/web/devportfolio/src
+
+/home/juanpa/dev/web/devportfolio/src
+├── components
+│   ├── About.astro
+│   ├── Education.astro
+│   ├── Experience.astro
+│   ├── Footer.astro
+│   ├── Header.astro
+│   ├── Hero.astro
+│   ├── LangSwitch.astro
+│   ├── Projects.astro
+│   └── Scroll.astro
+├── config.ts
+├── pages
+│   ├── index.astro
+│   ├── nebula.astro
+│   └── NotPublic
+│       └── index.astro
+└── styles
+    └── global.css
+
+5 directories, 14 files
+
+--- File Contents (Recursive) ---
+pages/nebula.astro:
+[AND the contents]
+---
+// pages/nebula.astro
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Scroll from "../components/Scroll.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+
+// --- Custom Component Definitions ---
+
+// Custom component for consistent code block styling (TSX definition in Astro)
+interface CodeBlockProps {
+    code: string;
+}
+const CodeBlock = ({ code }: CodeBlockProps) => (
+    <pre class="bg-gray-100 p-4 rounded-xl text-sm overflow-x-auto text-gray-800 border border-gray-200">
+        <code>{code}</code>
+    </pre>
+);
+
+// Custom component for feature/table display (TSX definition in Astro)
+interface FeatureTableProps {
+    rows: string[][];
+    headers: string[];
+}
+const FeatureTable = ({ rows, headers }: FeatureTableProps) => (
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr>
+                    {headers.map((h, index) => (
+                        <th key={index} class="py-3 px-4 bg-gray-900 text-white font-bold uppercase text-xs border border-gray-800">{h}</th>
+                    ))}
+                </tr>
+            </thead>
+            <tbody>
+                {rows.map((row, index) => (
+                    <tr key={index} class={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+                        {row.map((cell, cellIndex) => (
+                            <td key={cellIndex} class="py-3 px-4 text-gray-700 text-sm">{cell}</td>
+                        ))}
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Documentation and deep dive into the Nebula programming language." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;0,600;0,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{siteConfig.name} - Nebula Language</title>
+  </head>
+  <body>
+    <Header />
+    <div data-scroll-container>
+      <main class="max-w-4xl mx-auto px-8 py-24 sm:py-32 md:py-40">
+        <article class="space-y-12">
+          <header class="pb-8 border-b border-gray-200">
+            <h1 class="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 mb-4">
+              The Nebula Language
+            </h1>
+            <p class="text-xl text-gray-600">
+              A systems language balancing C#-like abstraction with zero-cost memory safety and native performance.
+            </p>
+            <div class="mt-4">
+              <a href="https://github.com/Lokray06/nebula" target="_blank" rel="noopener noreferrer" 
+                 class="inline-flex items-center text-sm font-medium p-2 rounded-lg"
+                 style={`background-color: ${siteConfig.accentColor}20; color: ${siteConfig.accentColor};`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1.5">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+                </svg>
+                View on GitHub
+              </a>
+            </div>
+          </header>
+
+          <section id="architecture">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b pb-2">I. Architecture and Compilation</h2>
+            <p class="text-lg text-gray-700 mb-4">
+              Nebula is built for native performance and broad interoperability. Its compiler targets the industry-standard **LLVM** infrastructure.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Native Compilation Pipeline</h3>
+            <p class="text-base text-gray-700 mb-4">
+              The Nebula compiler performs all static safety analysis, then outputs highly optimized **LLVM Intermediate Representation (IR)**. This IR is then processed by a compiler backend of the user's choice (e.g., G++ or Clang) to produce a native binary.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 pl-4 space-y-1">
+              <li>**Output:** Highly optimized, standalone native executables.</li>
+              <li>**FFI:** Easy integration and linking against existing C, C++, and Assembly codebases.</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Project Workflow</h3>
+            <p class="text-base text-gray-700 mb-2">
+                Project initialization is handled via the CLI, with configuration defined in a JSON file for flags like the main class, dependencies, and application name.
+            </p>
+            <CodeBlock code={'nebula new my_project\n\n// Configuration file (nebula.json)\n{\n  "app_name": "MyProject",\n  "main_class": "MyProject.App",\n  "dependencies": ["nebula.collections"]\n  // ... other flags\n}'} />
+          </section>
+
+          <hr class="my-10 border-gray-200" />
+
+          <section id="semantics">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b pb-2">II. Language Semantics and Syntax</h2>
+            <p class="text-lg text-gray-700">
+              Nebula's grammar is designed for familiarity, adopting many modern conveniences found in popular OOP languages.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Explicit Types and Aliases</h3>
+            <p class="text-base text-gray-700 mb-4">
+              All integral types offer both common names (e.g., `int`) and explicit-width aliases (e.g., `int32`), promoting code portability. Unsigned types are indicated with a `u` prefix (e.g., `uint32`, `ushort`).
+            </p>
+            <FeatureTable 
+                headers={["Category", "Standard Name", "Explicit Alias", "Size (bits)", "Example"]}
+                rows={[
+                    ["Signed Integer", "byte, short, int, long", "int8, int16, int32, int64", "8, 16, 32, 64", "long large_val = 10000000L;"],
+                    ["Unsigned Integer", "ubyte, ushort, uint, ulong", "uint8, uint16, uint32, uint64", "8, 16, 32, 64", "uint16 port = 8080u;"],
+                    ["Floating-Point", "float, double", "N/A", "32, 64", "double pi = 3.14159;"]
+                ]}
+            />
+            
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Syntactic Sugar and QoL Features</h3>
+
+            <div class="space-y-6">
+                <h4 class="text-lg font-medium text-gray-800">User-Defined Aliases</h4>
+                <p class="text-base text-gray-700">
+                  The <code class="bg-gray-200 px-1 rounded">alias</code> keyword allows for creating local shortcuts for types or static methods, reducing verbose qualified names.
+                </p>
+                <CodeBlock code={'alias println = Console.println;\n\nvoid Main() {\n    println("Hello, World!");\n    alias Matrix4x4 = nebula.math.Matrix<float>;\n}'} />
+
+                <h4 class="text-lg font-medium text-gray-800">String Interpolation</h4>
+                <p class="text-base text-gray-700">
+                  Simplifies string construction by embedding any literal expression directly inside a string using <code class="bg-gray-200 px-1 rounded">$"{...}"</code>.
+                </p>
+                <CodeBlock code={'int x = 5;\nstring name = "User";\nConsole.WriteLine($"Hello, {name}! The result of 2 * {x} is {2 * x}.");'} />
+                
+                <h4 class="text-lg font-medium text-gray-800">Tuples, Named, and Optional Parameters</h4>
+                <p class="text-base text-gray-700">
+                  Provides flexible data grouping and improves method call readability through named and optional parameters.
+                </p>
+                <CodeBlock code={'// Named Tuple\n(float Sum, uint32 Count) data = (10.5f, 5u);\nConsole.println(data.Sum);\n\n// Named and Optional Parameters (C# style)\npublic MyClass(float p1, int32 opt = 3) {}\nMyClass inst = new MyClass(optionalParam: 6, param1: 3.4f);'} />
+                
+                <h4 class="text-lg font-medium text-gray-800">Arrays and Control Flow</h4>
+                <p class="text-base text-gray-700">
+                  Standard array definition and access, supporting properties like <code class="bg-gray-200 px-1 rounded">.size</code> and concise iteration via <code class="bg-gray-200 px-1 rounded">foreach</code>.
+                </p>
+                <CodeBlock code={'int32[] numbers = {1, 2, 3};\nConsole.println(numbers.size); // Prints 3\n\nforeach (int32 n in numbers) {\n    if (n > 1) { /* ... */ }\n}\n\n// Ternary Operator\nstring status = (count > 0) ? "Active" : "Empty";'} />
+            </div>
+          </section>
+
+          <hr class="my-10 border-gray-200" />
+
+          <section id="memory-safety">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b pb-2">III. Memory Safety: Static-First ARC Model</h2>
+            <p class="text-lg text-gray-700">
+              Nebula achieves memory safety without a runtime Garbage Collector (GC) using **Static-First ARC Elision**. This is a hybrid approach where the compiler attempts **zero-cost** safety via static analysis (like Rust's borrow checker) but falls back to implicit **Atomic Reference Counting (ARC)** when lifetimes are ambiguous.
+            </p>
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">The Zero-Cost Tier (Performance Opt-In)</h3>
+            <p class="text-base text-gray-700 mb-4">
+              To guarantee zero memory overhead, the developer uses explicit keywords to guide the compiler:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 pl-4 space-y-2">
+              <li>**Exclusive Mutability (`mut`):** Asserts the function requires a unique reference. The compiler performs a **Borrow Check** and, if successful, **elides the ARC overhead.**</li>
+              <li>**Move Semantics:** Transfers ownership of a resource, allowing the compiler to insert a direct, unconditional **`free()`** instruction.</li>
+            </ul>
+
+            <CodeBlock code={'// Zero-Cost: Exclusive Mutable Access (guaranteed by compiler)\npublic void Resize(mut Image img, int32 newSize) {\n    img.Size = newSize;\n}\n\n// Zero-Cost: Ownership Move\npublic Image ApplyFilter(Image img) { // \'img\' is consumed\n    return new Image { /* filtered data */ }; // Old \'img\' is freed\n}'} />
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">The Runtime-Safe Tier (Abstraction Fallback)</h3>
+            <p class="text-base text-gray-700 mb-4">
+              When code is written in an abstracted, C#-like style where ownership is unclear (e.g., adding a reference to a global list), the compiler automatically and transparently inserts ARC instructions. This ensures memory safety at the cost of minimal runtime counter updates, abstracting memory complexity from the developer.
+            </p>
+            <CodeBlock code={'// High Abstraction: No explicit ownership syntax needed\n// Compiler implicitly inserts ARC ops.\nThreadQueue.enqueue(filteredImage); // ARC ensures the object lives until the queue is done with it.'} />
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">The `safety_mode` Flag</h3>
+            <p class="text-base text-gray-700 mb-4">
+              For systems programming requiring absolute maximum performance, the `safety_mode` flag can be set in the `nebula.json` file.
+            </p>
+            <FeatureTable 
+                headers={["Mode", "Description", "ARC Fallback", "Result"]}
+                rows={[
+                    ["hybrid", "The default, balanced mode.", "Enabled (Automatic)", "High Abstraction, Conditional Overhead"],
+                    ["explicit-only", "Forces pure zero-cost memory management.", "Disabled (Compiler Error)", "Maximum Performance (Rust-like strictness)"]
+                ]}
+            />
+          </section>
+        </article>
+      </main>
+      <Footer />
+    </div>
+    <Scroll />
+  </body>
+</html>
+pages/index.astro:
+[AND the contents]
+---
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../config";
+import Scroll from "../components/Scroll.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{siteConfig.name} - {siteConfig.title}</title>
+  </head>
+  <body>
+    <Header />
+    <div data-scroll-container>
+      <section>
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Education />
+      </section>
+      <Footer />
+    </div>
+    <Scroll />
+  </body>
+</html>
+
+pages/NotPublic/index.astro:
+[AND the contents]
+---
+import { siteConfig } from "../../config";
+import "../../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{siteConfig.name} - Redacted</title>
+  </head>
+  <body>
+    <main class="flex flex-col items-center justify-center min-h-screen px-4 py-20 text-center">
+      <h1 class="mb-4 text-4xl font-bold">Project Information Redacted</h1>
+      <p class="max-w-prose">
+        This project is not available for public viewing. It contains
+        proprietary company information and sensitive data that cannot be
+        shared. For a detailed overview of my contributions and the project's
+        technical scope, please refer to the description provided in my portfolio.
+      </p>
+      <button class="mt-8 bg-neutral-950 text-neutral-100 p-4 rounded-2xl font-medium hover:font-bold hover:bg-neutral-800 transition-all">
+        <a href=".">Go back to the portfolio</a>
+      </button>
+    </main>
+  </body>
+</html>
+components/Projects.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+---
+
+{
+  hasProjects && (
+    <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              Projects
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="space-y-8">
+              {siteConfig.projects.map((project, index) => {
+                const Component = project.link ? "a" : "div";
+                const linkProps = project.link
+                  ? {
+                      href: project.link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {};
+
+                return (
+                  <div class="group relative">
+                    <Component
+                      {...linkProps}
+                      class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
+                        project.link
+                          ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
+                          : ""
+                      }`}
+                    >
+                      {project.link && (
+                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
+                          <svg
+                            class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M7 17L17 7M17 7H7M17 7V17"
+                            />
+                          </svg>
+                        </div>
+                      )}
+
+                      <div class="space-y-4">
+                        <div>
+                          <span
+                            class="text-sm font-mono"
+                            style={{ color: siteConfig.accentColor }}
+                          >
+                            0{index + 1}
+                            <span class="text-xs font-medium ml-3 text-gray-400">{project.status} | {project.category}</span>
+                          </span>
+                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+                            {project.name}
+                          </h3>
+                        </div>
+
+                        <p
+                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
+                        >
+                          {project.description}
+                        </p>
+
+                        {project.skills && project.skills.length > 0 && (
+                          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
+                            {project.skills.map((skill) => (
+                              <span
+                                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
+                                  project.link ? "group-hover:bg-gray-800" : ""
+                                }`}
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </Component>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+components/Footer.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+---
+
+<footer class="relative bg-gray-50 border-t border-gray-200">
+  <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+    >
+      <div class="flex flex-col gap-4">
+        <h3 class="text-2xl font-bold text-gray-800">
+          {siteConfig.name}
+        </h3>
+        <p class="text-base text-gray-600">
+          {siteConfig.title}
+        </p>
+        <div class="flex gap-x-6">
+          <a
+            href={`mailto:${siteConfig.social.email}`}
+            aria-label="Email"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            style={`--accent-color: ${siteConfig.accentColor}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+              ></path>
+              <path d="M3 7l9 6l9 -6"></path>
+            </svg>
+          </a>
+          <a
+            href={siteConfig.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            style={`--accent-color: ${siteConfig.accentColor}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"
+              ></path><path d="M16 16v-3a2 2 0 1 0 -4 0"></path><path
+                d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
+              ></path></svg
+            >
+          </a>
+          <a
+            href={siteConfig.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            style={`--accent-color: ${siteConfig.accentColor}`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+              ></path></svg
+            >
+          </a>
+        </div>
+      </div>
+
+      <div class="hidden md:block flex flex-col md:items-end gap-4">
+        <nav class="flex gap-x-8">
+          <a
+            href="#about"
+            class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+            >About</a
+          >
+          {
+            hasProjects && (
+              <a
+                href="#projects"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Projects
+              </a>
+            )
+          }
+          {
+            hasExperience && (
+              <a
+                href="#experience"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Experience
+              </a>
+            )
+          }
+          {
+            hasEducation && (
+              <a
+                href="#education"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Education
+              </a>
+            )
+          }
+        </nav>
+        <p class="text-sm text-gray-500">
+          © {new Date().getFullYear()}
+          {siteConfig.name}. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative pattern -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <svg
+      aria-hidden="true"
+      class="absolute bottom-0 left-0 w-full h-24 text-gray-100"
+    >
+      <pattern
+        id="footer-pattern"
+        x="0"
+        y="0"
+        width="100"
+        height="100"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M0 50 Q 25 40, 50 50 T 100 50"
+          stroke="currentColor"
+          stroke-width="0.5"
+          fill="none"
+          opacity="0.4"></path>
+      </pattern>
+      <rect width="100%" height="100%" fill="url(#footer-pattern)"></rect>
+    </svg>
+  </div>
+</footer>
+
+components/LangSwitch.astro:
+[AND the contents]
+
+components/Education.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+---
+
+{
+  hasEducation && (
+    <section id="education" class="p-8 sm:p-12 md:p-16 lg:p-24">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              Education
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="space-y-8">
+              {siteConfig.education.map((edu) => (
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                    <div>
+                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
+                        {edu.degree}
+                      </h3>
+                      <p
+                        class="text-base sm:text-lg"
+                        style={`color: ${siteConfig.accentColor}`}
+                      >
+                        {edu.school}
+                      </p>
+                    </div>
+                    <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
+                      {edu.dateRange}
+                    </span>
+                  </div>
+
+                  <ul class="space-y-2">
+                    {edu.achievements.map((achievement) => (
+                      <li class="flex items-start">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
+                        <span class="text-sm sm:text-base text-gray-600">
+                          {achievement}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+components/Header.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+>
+  <nav class="max-w-7xl mx-auto px-8 py-4">
+    <ul class="flex items-center gap-8 justify-center">
+      <li>
+        <a
+          href="#about"
+          class="text-gray-700 hover:text-black transition-colors font-medium"
+        >
+          About
+        </a>
+      </li>
+      {
+        hasProjects && (
+          <li>
+            <a
+              href="#projects"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Projects
+            </a>
+          </li>
+        )
+      }
+      {
+        hasExperience && (
+          <li>
+            <a
+              href="#experience"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Experience
+            </a>
+          </li>
+        )
+      }
+      {
+        hasEducation && (
+          <li>
+            <a
+              href="#education"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Education
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Listen for the custom event from Scroll.astro
+  window.addEventListener("loco-scroll", (event) => {
+    // TypeScript users: 'event.detail' is not directly accessible on a generic Event.
+    // Use type assertion to access custom properties.
+    const scrollPosition = (event as CustomEvent).detail.scrollPosition;
+    const header = document.getElementById("header");
+
+    if (scrollPosition > 100) {
+      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+    } else {
+      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+    }
+  });
+</script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+components/Experience.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+---
+
+{
+  hasExperience && (
+    <section id="experience" class="p-8 sm:p-12 md:p-16 lg:p-24">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              Experience
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="relative">
+              {siteConfig.experience.map((exp, index) => (
+                <div class="relative mb-12 last:mb-0">
+                  {/* Timeline dot at top of card */}
+                  <div
+                    class="absolute left-1/2 -top-2 w-4 h-4 bg-white border-2 rounded-full -translate-x-1/2 z-20 transition-all duration-300"
+                    style={`border-color: ${siteConfig.accentColor}; background-color: ${siteConfig.accentColor}`}
+                  />
+
+                  {/* Connecting line below card */}
+                  {index < siteConfig.experience.length - 1 && (
+                    <div class="absolute left-1/2 bottom-0 w-0.5 h-12 bg-gray-300 -translate-x-1/2 translate-y-full z-10" />
+                  )}
+
+                  {/* Experience card */}
+                  <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                      <div>
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
+                          {exp.title}
+                        </h3>
+                        <p
+                          class="text-base sm:text-lg"
+                          style={`color: ${siteConfig.accentColor}`}
+                        >
+                          {exp.company}
+                        </p>
+                      </div>
+                      <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
+                        {exp.dateRange}
+                      </span>
+                    </div>
+
+                    <ul class="space-y-2">
+                      {exp.bullets.map((bullet) => (
+                        <li class="flex items-start">
+                          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
+                          <span class="text-sm sm:text-base text-gray-600">
+                            {bullet}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+components/Scroll.astro:
+[AND the contents]
+// src/components/Scroll.astro
+<script>
+    import LocomotiveScroll from "locomotive-scroll";
+    import "locomotive-scroll/dist/locomotive-scroll.css";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        if (isMobile) return;
+
+        const scrollContainer = document.querySelector(
+            "[data-scroll-container]",
+        ) as HTMLElement;
+
+        if (!scrollContainer) {
+            console.error(
+                "Locomotive Scroll: Element with data-scroll-container not found.",
+            );
+            return;
+        }
+
+        const scroll = new LocomotiveScroll({
+            el: scrollContainer,
+            smooth: true,
+            lerp: 0.07,
+            multiplier: 1.5,
+        });
+
+        // Listen to the Locomotive Scroll 'scroll' event
+        scroll.on("scroll", (obj) => {
+            // Dispatch a custom event with the scroll data
+            const event = new CustomEvent("loco-scroll", {
+                detail: {
+                    scrollPosition: obj.scroll.y,
+                },
+            });
+            window.dispatchEvent(event);
+        });
+
+        window.addEventListener("beforeunload", () => {
+            scroll.destroy();
+        });
+    });
+</script>
+
+components/Hero.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+---
+
+<div
+  id="hero"
+  class="relative isolate overflow-hidden bg-white py-24 md:h-screen"
+  style={`--accent-color: ${siteConfig.accentColor}`}
+>
+  <!-- Gradient overlay -->
+  <div
+    class="absolute inset-0 -z-10"
+    style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${siteConfig.accentColor}40 0%, ${siteConfig.accentColor}25 20%, ${siteConfig.accentColor}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
+  >
+  </div>
+  <svg
+    aria-hidden="true"
+    class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+  >
+    <defs>
+      <pattern
+        x="50%"
+        y={-1}
+        id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+        width={200}
+        height={200}
+        patternUnits="userSpaceOnUse"
+      >
+        <path d="M.5 200V.5H200" fill="none"></path>
+      </pattern>
+      <pattern
+        id="programming-symbols"
+        x="0"
+        y="0"
+        width="400"
+        height="400"
+        patternUnits="userSpaceOnUse"
+      >
+        <text
+          x="50"
+          y="50"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="24"
+          transform="rotate(-15)">&lt;/&gt;</text
+        >
+        <text
+          x="150"
+          y="100"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="20"
+          transform="rotate(10)">{}</text
+        >
+        <text
+          x="250"
+          y="80"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="18"
+          transform="rotate(-5)">=&gt;</text
+        >
+        <text
+          x="100"
+          y="200"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="22"
+          transform="rotate(15)">[]</text
+        >
+        <text
+          x="300"
+          y="180"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="20"
+          transform="rotate(-10)">&lt;&gt;</text
+        >
+        <text
+          x="200"
+          y="250"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="24"
+          transform="rotate(5)">()</text
+        >
+        <text
+          x="50"
+          y="320"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="18"
+          transform="rotate(-8)">::</text
+        >
+        <text
+          x="350"
+          y="300"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="22"
+          transform="rotate(12)">==</text
+        >
+        <text
+          x="150"
+          y="350"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="20"
+          transform="rotate(-15)">++</text
+        >
+        <text
+          x="250"
+          y="370"
+          fill={siteConfig.accentColor}
+          font-family="monospace"
+          font-size="24"
+          transform="rotate(8)">;</text
+        >
+      </pattern>
+    </defs>
+    <rect
+      fill="url(#programming-symbols)"
+      width="100%"
+      height="100%"
+      opacity="0.2"></rect>
+    <rect
+      fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+      width="100%"
+      height="100%"
+      stroke-width={0}></rect>
+  </svg>
+  <div class="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
+    <div>
+      <h2
+        class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
+      >
+        Hello! 👋
+      </h2>
+      <h1
+        class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
+      >
+        I'm <span style={{ color: siteConfig.accentColor }}
+          >{siteConfig.name}</span
+        >
+      </h1>
+      <p
+        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
+      >
+        {siteConfig.title}
+      </p>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
+  >
+    {
+      siteConfig.social?.email && (
+        <a
+          href={`mailto:${siteConfig.social.email}`}
+          aria-label="Email"
+          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+        </a>
+      )
+    }
+    {
+      siteConfig.social?.linkedin && (
+        <a
+          href={siteConfig.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+          >
+            <>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 11v5" />
+              <path d="M8 8v.01" />
+              <path d="M12 16v-5" />
+              <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+              <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+            </>
+          </svg>
+        </a>
+      )
+    }      
+    {
+      siteConfig.social?.github && (
+        <a
+          href={siteConfig.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+          >
+            <>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+            </>
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+</style>
+
+components/About.astro:
+[AND the contents]
+---
+import { siteConfig } from "../config";
+---
+
+<section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24">
+  <div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+      <div class="lg:col-span-4">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
+        >
+          About Me
+        </h2>
+        <div
+          class="w-[75px] h-[5px] mt-2 rounded-full"
+          style={`background-color: ${siteConfig.accentColor}`}
+        >
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 space-y-8">
+        <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
+          {siteConfig.aboutMe}
+        </p>
+
+        <div class="pt-4">
+          <div class="flex flex-wrap gap-3">
+            {
+              siteConfig.skills.map((skill) => (
+                <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 transition-colors duration-200">
+                  {skill.name}
+                  <span class="text-gray-500">{skill.experienceYears}y</span>
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+config.ts:
+[AND the contents]
+export const siteConfig = {
+  name: "Juanpa",
+  title: "Programmer | Fullstack student",
+  description: "Portfolio website of Juanpa",
+  accentColor: "#1d4ed8",
+  social: {
+    email: "contact@jpgp.es",
+    linkedin: "https://linkedin.com/in/yourprofile",
+    github: "https://github.com/Lokray06",
+  },
+  aboutMe:
+    "Im a 19yo fullstack student based in Spain. But doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc.",
+  skills: [
+    { name: "Java", experienceYears: 2 },
+    { name: "C#", experienceYears: 3 },
+    { name: "Linux systems", experienceYears: 3 },
+    { name: "Python", experienceYears: 3 }
+  ],
+  projects: [
+    {
+      category: "Personal",
+      status: "In development",
+      name: "Nebula",
+      description:
+        "An object-oriented programming language with a custom compiler that translates source code to LLVM IR. As an exploration into language design, Nebula combines a clean, high-level syntax—inspired by languages like Java and C#—with the goal of achieving native performance without a heavy virtual machine.",
+      link: "https://github.com/Lokray06/nebula",
+      skills: ["Java", "LLVM", "C++"],
+    },
+
+    // Minocraft
+    {
+      category: "Personal",
+      status: "In development",
+      name: "Minocraft",
+      description:
+        "A custom-built Minecraft-style voxel engine in Java using LWJGL. The project focuses on optimizing core mechanics to achieve higher performance than the original game, while replicating its a block-based sandbox environment.",
+      link: "https://github.com/Lokray06/Minocraft",
+      skills: ["Java", "OpenGL"],
+    },
+
+    // CRIS
+    {
+      category: "Personal",
+      status: "Completed",
+      name: "CRIS",
+      description:
+        "A Python-based steganography tool that securely hides and retrieves files within images using RSA encryption. The project demonstrates a method for encrypting a data-shuffling seed to ensure secure retrieval.",
+      link: "https://github.com/Lokray06/CRIS",
+      skills: ["Python", "Cryptography", "Steganography"],
+    },
+
+    // Arcane
+    {
+      category: "Personal",
+      status: "In development",
+      name: "Arcane",
+      description:
+        "A 3D game engine built from scratch in Java with LWJGL. The engine features a custom entity-component system and real-time rendering, providing a lightweight framework for game development.",
+      link: "https://github.com/Lokray06/Arcane",
+      skills: ["Java", "OpenGL", "LWJGL", "GLSL"],
+    },
+    // ENCASA App Suite
+    {
+      category: "Professional",
+      status: "Completed",
+      name: "ENCASA App Suite",
+      description:
+        "Led the development of a custom 3-app suite to streamline the company's incident tracking and management process. The solution integrated with existing company data sources and provided a RESTful API for external data visualization.",
+      link: "NotPublic",
+      skills: ["AutoHotkey", "PHP", "VBA", "APIs"],
+    },
+    // EPI Automation
+    {
+      category: "Professional",
+      status: "Completed",
+      name: "EPI Automation App",
+      description:
+        "Engineered a local server application using web technologies to automate the process of issuing personal protective equipment (PPE) to employees. The system auto-generates and digitally signs PDF records, streamlining a critical business process.",
+      link: "NotPublic",
+      skills: ["HTML", "CSS", "JavaScript", "PHP", "PDF-Lib"],
+    },
+  ],
+  experience: [
+    {
+      company: "ENCASA",
+      title: "Systems Developer",
+      dateRange: "Jun 2024 - Aug 2024",
+      bullets: [
+        "Built and maintained a custom application suite to manage internal incident reports, supplier communications, and quality control",
+        "Leveraged existing company data in Excel to build a primary data source for a suite of applications, ensuring data continuity and accessibility",
+        "Developed a local server application using web technologies to automate the process of signing and generating PDF documents for worker PPE"
+      ],
+    },
+    {
+      company: "ENCASA (Internship)",
+      title: "Systems Developer Intern",
+      dateRange: "May 2024 - Jun 2024",
+      bullets: [
+        "Led the development of a 3-app suite to streamline the company's INC tracking process, from registration to supplier reporting",
+        "Architected a solution that integrated with the company's legacy data systems and provided a RESTful API for external data visualization",
+        "Implemented new features and continued to expand the application's functionality based on evolving business needs"
+      ],
+    },
+    {
+      company: "Vinilo sevilla S.L. (Internship)",
+      title: "Networking Intern",
+      dateRange: "May 2022 - Jul 2022",
+      bullets: [
+        "Developed the company website with Wordpress",
+        "Independently maintained the company's network infrastructure",
+        "Developed some Python automation apps for the company's SEO, and local positioning",
+        "Gained extensive experience in vinyl installation through multiple projects for clients like Shell, Real Maestranza de Sevilla, Real Club El Mercantil, and many more",
+      ],
+    },
+  ],
+  education: [
+    {
+      school: "Altair | ES",
+      degree: "Vocational Training in Microcomputer Systems and Networks (Intermediate Level)",
+      dateRange: "22/23 - 23/24",
+      achievements: [
+        "Graduated with 9.2",
+        "Delegate representing all the school's vocational training students",
+      ],
+    },
+    {
+      school: "Altair | ES",
+      degree: "Full Stack Development Certificate",
+      dateRange: "24/25 - Current",
+      achievements: [
+        "Completed first year with an average grade of 9.8, demonstrating a strong grasp of core concepts",
+        "Appointed by professors to mentor younger students, assisting them with coursework and improving their understanding of complex topics"
+      ],
+    },
+  ],
+};
+
+styles/global.css:
+[AND the contents]
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100%;
+}
+--- End of Listing ---
