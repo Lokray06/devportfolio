@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 html {
+  /* Keep native smooth behavior for anchor links on mobile */
   scroll-behavior: smooth;
 }
 
@@ -9,22 +10,35 @@ body {
   min-height: 100%;
   margin: 0;
   overflow-x: hidden;
+  /* Ensure mobile body height is natural if smooth scroll is off */
+  height: auto; 
 }
 
-/* Hide scrollbar */
-::-webkit-scrollbar {
+/* --- Smooth Scroll Activation Styles (Desktop Only) --- */
+
+/* This class is added by the JS only when a desktop environment is detected. */
+.smooth-scroll-active {
+  /* Set body height based on content size to allow scrolling */
+  height: var(--main-scroll-height) !important;
+}
+
+/* Hide scrollbar ONLY when smooth scroll is active */
+.smooth-scroll-active ::-webkit-scrollbar {
   width: 0 !important;
 }
 
-main {
-  width: 100%;
+/* These rules fix the main content block and enable the JS translation */
+.smooth-scroll-active main {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   will-change: transform;
 }
 
-.font-nebula{
+/* --- Font Definitions (Unchanged) --- */
+
+.font-nebula {
   font-family: 'Poly Sans', sans-serif;
 }
 
@@ -55,5 +69,3 @@ main {
   font-weight: 700;
   font-style: normal;
 }
-
-/* Add more weights/styles if you want */

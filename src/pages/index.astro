@@ -19,10 +19,6 @@ import "../styles/global.css";
     <meta name="description" content={siteConfig.description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
     <title>{siteConfig.name}</title>
   </head>
 
@@ -37,41 +33,67 @@ import "../styles/global.css";
       <Footer />
     </main>
     <script is:inline>
-      if (window.innerWidth > 768) {
-        // run the smooth scroll logic
+      // A. Define parameters for what we consider a "Desktop" environment
+      // We'll use the pointer/hover check AND a screen width check for safety.
+      const isDesktopPointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+      ).matches;
 
-        const body = document.body;
-        const main = document.getElementById("main");
+      // Max width (in pixels) we'll consider a "phone" or small device
+      const MAX_MOBILE_WIDTH = 768;
+      const isLargeScreen = window.innerWidth > MAX_MOBILE_WIDTH;
+
+      // Final determination: Must have desktop-like pointer AND be a large screen
+      const isDesktop = isDesktopPointer && isLargeScreen;
+
+      const body = document.body;
+      const main = document.getElementById("main");
+
+      if (isDesktop) {
+        // --- DESKTOP SMOOTH SCROLL LOGIC (Only runs if both checks pass) ---
+
+        // 1. Activate smooth scroll styles
+        body.classList.add("smooth-scroll-active");
 
         let sx = 0,
           sy = 0;
         let dx = sx,
           dy = sy;
 
+        // Linear interpolation function
         function li(a, b, n) {
           return (1 - n) * a + n * b;
         }
 
-        // Adjust body height to allow scrolling
+        // Adjust body height to allow native scrolling to happen
         function updateBodyHeight() {
-          body.style.height = main.scrollHeight + "px";
+          // Use CSS variable to set body height based on main's content size
+          document.documentElement.style.setProperty(
+            "--main-scroll-height",
+            `${main.scrollHeight}px`,
+          );
         }
 
+        // Initialize and update height on resize
         updateBodyHeight();
         window.addEventListener("resize", updateBodyHeight);
 
+        // Capture actual scroll position
         window.addEventListener("scroll", () => {
           sx = window.pageXOffset;
           sy = window.pageYOffset;
         });
 
+        // Animation loop
         function render() {
+          // Smoothly interpolate the tracked scroll position (sx, sy) to the rendered position (dx, dy)
           dx = li(dx, sx, 0.07);
           dy = li(dy, sy, 0.07);
 
+          // Apply the transform to the main content
           main.style.transform = `translate3d(-${dx}px, -${dy}px, 0)`;
 
-          // Update header based on scroll position
+          // Update header based on scroll position (keep this logic)
           const header = document.getElementById("header");
           if (header) {
             if (dy > 100) {
@@ -85,15 +107,30 @@ import "../styles/global.css";
         }
 
         requestAnimationFrame(render);
+      } else {
+        // --- MOBILE/NON-DESKTOP FAILSAFE ---
+        // If the check fails, ensure all smooth-scroll-related styling is off.
+
+        // 1. Remove the smooth scroll class just in case the browser applied it for some reason
+        body.classList.remove("smooth-scroll-active");
+
+        // 2. Clear any lingering inline styles that conflict with native scrolling
+        // This is the most important part of the failsafe.
+        main.style.transform = "";
+        document.documentElement.style.removeProperty("--main-scroll-height");
+        body.style.removeProperty("height");
+
+        // 3. Optional: Set main back to natural flow if any other external CSS tries to fix it.
+        main.style.position = "static";
       }
-      // Handle internal anchor links (#about, #projects, etc.)
+
+      // --- ANCHOR LINK HANDLER (Works for both mobile and desktop) ---
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (e) => {
           const targetId = link.getAttribute("href").substring(1);
           const target = document.getElementById(targetId);
           if (target) {
             e.preventDefault();
-            // Scroll the window manually so your momentum scroll picks it up
             window.scrollTo({
               top: target.offsetTop,
               behavior: "smooth",
