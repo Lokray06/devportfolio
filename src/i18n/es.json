@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "Juanpa",
+    "title": "Programador | Estudiante Fullstack",
+    "description": "Portfolio web de Juanpa"
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "education": "Estudios"
+  },
+  "hero": {
+    "greeting": "¡Hola! 👋",
+    "intro": "Soy",
+    "title": "Programador | Estudiante Fullstack"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "bio": "Soy un estudiante fullstack de 19 años residente en España. Pero eso no me impide explorar otros campos de la programación que me apasionan más, como el desarrollo de sistemas, gamedev, gráficos por computadora, etc."
+  },
+  "skills_title": "Habilidades",
+  "skills": [
+    { "name": "Inglés", "experienceYears": "C1" },
+    { "name": "Java", "experienceYears": "2a" },
+    { "name": "C#", "experienceYears": "3a" },
+    { "name": "Sistemas Linux", "experienceYears": "3a" },
+    { "name": "Python", "experienceYears": "3a" }
+  ],
+  "projects": {
+    "title": "Proyectos",
+    "items": [
+      {
+        "category": "Personal",
+        "status": "En desarrollo",
+        "name": "Nebula",
+        "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en lenguajes como Java y C#, con el objetivo de lograr un rendimiento nativo sin una pesada máquina virtual.",
+        "skills": ["Java", "LLVM", "C++"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experiencia",
+    "items": [
+      {
+        "company": "ENCASA",
+        "title": "Desarrollador de Sistemas",
+        "dateRange": "Jun 2024 - Ago 2024",
+        "bullets": [
+          "Construí y mantuve por mi cuenta un conjunto de aplicaciones personalizadas para gestionar informes internos de incidencias, comunicaciones con proveedores y control de calidad",
+          "Aproveché los datos existentes de la empresa en Excel para construir una fuente de datos primaria para un conjunto de aplicaciones, asegurando la continuidad y accesibilidad de los datos",
+          "Desarrollé una aplicación de servidor local usando tecnologías web para automatizar el proceso de firma y generación de documentos PDF para EPIs de trabajadores"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Educación",
+    "items": [
+      {
+        "school": "Altair | ES",
+        "degree": "Grado Medio en Sistemas Microinformáticos y Redes",
+        "dateRange": "22/23 - 23/24",
+        "achievements": [
+          "Graduado con 9.2",
+          "Delegado representante de todos los alumnos de FP de la escuela"
+        ]
+      },
+      {
+        "school": "Altair | ES",
+        "degree": "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+        "dateRange": "24/25 - Actual",
+        "achievements": [
+          "Completado primer año con una nota media de 9.8, demostrando un fuerte dominio de los conceptos básicos",
+          "Nombrado por los profesores para mentorizar a estudiantes más jóvenes, ayudándoles con las tareas y mejorando su comprensión de temas complejos"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados."
+  },
+  "notPublic": {
+    "title": "Información del Proyecto Oculta",
+    "message": "Este proyecto no está disponible para visualización pública. Contiene información propietaria de la empresa y datos sensibles que no pueden ser compartidos. Para un resumen detallado de mis contribuciones y el alcance técnico del proyecto, por favor consulte la descripción proporcionada en mi portfolio.",
+    "button": "Volver al portfolio"
+  }
+}

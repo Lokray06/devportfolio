@@ -1,0 +1,88 @@
+{
+  "site": {
+    "name": "Juanpa",
+    "title": "Programmer | Fullstack student",
+    "description": "Portfolio website of Juanpa"
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education"
+  },
+  "hero": {
+    "greeting": "Hello! 👋",
+    "intro": "I'm",
+    "title": "Programmer | Fullstack student"
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a 19yo fullstack student based in Spain. But that doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc."
+  },
+  "skills_title": "Skills",
+  "skills": [
+    { "name": "English", "experienceYears": "C1" },
+    { "name": "Java", "experienceYears": "2y" },
+    { "name": "C#", "experienceYears": "3y" },
+    { "name": "Linux systems", "experienceYears": "3y" },
+    { "name": "Python", "experienceYears": "3y" }
+  ],
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "category": "Personal",
+        "status": "In development",
+        "name": "Nebula",
+        "description": "An object-oriented programming language with a custom compiler that translates source code to LLVM IR. As an exploration into language design, Nebula combines a clean, high-level syntax—inspired by languages like Java and C#—with the goal of achieving native performance without a heavy virtual machine.",
+        "skills": ["Java", "LLVM", "C++"]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "company": "ENCASA",
+        "title": "Systems Developer",
+        "dateRange": "Jun 2024 - Aug 2024",
+        "bullets": [
+          "Single-handedly built and maintained a custom application suite to manage internal incident reports, supplier communications, and quality control",
+          "Leveraged existing company data in Excel to build a primary data source for a suite of applications, ensuring data continuity and accessibility",
+          "Developed a local server application using web technologies to automate the process of signing and generating PDF documents for worker PPE"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "school": "Altair | ES",
+        "degree": "Vocational Training in Microcomputer Systems and Networks (Intermediate Level)",
+        "dateRange": "22/23 - 23/24",
+        "achievements": [
+          "Graduated with 9.2",
+          "Delegate representing all the school's vocational training students"
+        ]
+      },
+      {
+        "school": "Altair | ES",
+        "degree": "Full Stack Development Certificate",
+        "dateRange": "24/25 - Current",
+        "achievements": [
+          "Completed first year with an average grade of 9.8, demonstrating a strong grasp of core concepts",
+          "Appointed by professors to mentor younger students, assisting them with coursework and improving their understanding of complex topics"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "notPublic": {
+    "title": "Project Information Redacted",
+    "message": "This project is not available for public viewing. It contains proprietary company information and sensitive data that cannot be shared. For a detailed overview of my contributions and the project's technical scope, please refer to the description provided in my portfolio.",
+    "button": "Go back to the portfolio"
+  }
+}

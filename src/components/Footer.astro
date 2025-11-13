@@ -1,10 +1,8 @@
 ---
-import { siteConfig } from "../config";
-
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+// 1. Get props from the parent page
+const { t, siteName, siteTitle, social, copyright, accentColor, hasProjects, hasExperience, hasEducation } = Astro.props;
 ---
+
 
 <footer class="relative bg-gray-50 border-t border-gray-200">
   <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
@@ -13,17 +11,17 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
     >
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-bold text-gray-800">
-          {siteConfig.name}
+          {t.name}
         </h3>
         <p class="text-base text-gray-600">
-          {siteConfig.title}
+          {t.title}
         </p>
         <div class="flex gap-x-6">
           <a
-            href={`mailto:${siteConfig.social.email}`}
+            href={`mailto:${social.email}`}
             aria-label="Email"
             class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            style={`--accent-color: ${accentColor}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,12 +43,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             </svg>
           </a>
           <a
-            href={siteConfig.social.linkedin}
+            href={social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            style={`--accent-color: ${accentColor}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,12 +69,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             >
           </a>
           <a
-            href={siteConfig.social.github}
+            href={social.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
-            style={`--accent-color: ${siteConfig.accentColor}`}
+            style={`--accent-color: ${accentColor}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +100,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           <a
             href="#about"
             class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-            >About</a
+            >
+            {t.about}
+            </a
           >
           {
             hasProjects && (
@@ -110,7 +110,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#projects"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Projects
+                {t.projects}
               </a>
             )
           }
@@ -120,7 +120,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#experience"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Experience
+                {t.experience}
               </a>
             )
           }
@@ -130,14 +130,14 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#education"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Education
+                {t.education}
               </a>
             )
           }
         </nav>
         <p class="text-sm text-gray-500">
           © {new Date().getFullYear()}
-          {siteConfig.name}. All rights reserved.
+          {t.name}. {copyright}
         </p>
       </div>
     </div>

@@ -1,20 +1,20 @@
 ---
-import { siteConfig } from "../config";
+const { t, siteName, accentColor, social } = Astro.props;
 ---
 
 <div
   id="hero"
   class="relative isolate overflow-hidden bg-white py-24 md:h-screen"
-  style={`--accent-color: ${siteConfig.accentColor}`}
+  style={`--accent-color: ${accentColor}`}
 >
   <!-- Gradient overlay -->
   <div
     class="absolute inset-0 -z-10"
     style={`background: radial-gradient(
     ellipse 80% 120% at 0% 0%, 
-    ${siteConfig.accentColor}40 0%, 
-    ${siteConfig.accentColor}25 20%, 
-    ${siteConfig.accentColor}10 40%, 
+    ${accentColor}40 0%, 
+    ${accentColor}25 20%, 
+    ${accentColor}10 40%, 
     rgba(255, 255, 255, 0.3) 70%, 
     rgba(255, 255, 255, 0.8) 90%, 
     white 100%
@@ -48,7 +48,7 @@ import { siteConfig } from "../config";
         <text
           x="50"
           y="50"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="24"
           transform="rotate(-15)">&lt;/&gt;</text
@@ -56,7 +56,7 @@ import { siteConfig } from "../config";
         <text
           x="150"
           y="100"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="20"
           transform="rotate(10)">{}</text
@@ -64,7 +64,7 @@ import { siteConfig } from "../config";
         <text
           x="250"
           y="80"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="18"
           transform="rotate(-5)">=&gt;</text
@@ -72,7 +72,7 @@ import { siteConfig } from "../config";
         <text
           x="100"
           y="200"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="22"
           transform="rotate(15)">[]</text
@@ -80,7 +80,7 @@ import { siteConfig } from "../config";
         <text
           x="300"
           y="180"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="20"
           transform="rotate(-10)">&lt;&gt;</text
@@ -88,7 +88,7 @@ import { siteConfig } from "../config";
         <text
           x="200"
           y="250"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="24"
           transform="rotate(5)">()</text
@@ -96,7 +96,7 @@ import { siteConfig } from "../config";
         <text
           x="50"
           y="320"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="18"
           transform="rotate(-8)">::</text
@@ -104,7 +104,7 @@ import { siteConfig } from "../config";
         <text
           x="350"
           y="300"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="22"
           transform="rotate(12)">==</text
@@ -112,7 +112,7 @@ import { siteConfig } from "../config";
         <text
           x="150"
           y="350"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="20"
           transform="rotate(-15)">++</text
@@ -120,7 +120,7 @@ import { siteConfig } from "../config";
         <text
           x="250"
           y="370"
-          fill={siteConfig.accentColor}
+          fill={accentColor}
           font-family="monospace"
           font-size="24"
           transform="rotate(8)">;</text
@@ -143,19 +143,17 @@ import { siteConfig } from "../config";
       <h2
         class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
       >
-        Hello! 👋
+        {t.greeting} 
       </h2>
       <h1
         class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
       >
-        I'm <span style={{ color: siteConfig.accentColor }}
-          >{siteConfig.name}</span
-        >
+        {t.intro} <span style={{ color: accentColor }}>{siteName}</span>
       </h1>
       <p
         class="mt-4 sm:mt-6 md:mt-8 text-pretty italic text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
       >
-        {siteConfig.title}
+        {t.title}
       </p>
     </div>
   </div>
@@ -163,9 +161,9 @@ import { siteConfig } from "../config";
     class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
   >
     {
-      siteConfig.social?.email && (
-        <a
-          href={`mailto:${siteConfig.social.email}`}
+      social?.email && (
+       <a
+          href={`mailto:${social.email}`}
           aria-label="Email"
           class="transition-colors duration-300 hover:text-[var(--accent-color)]"
         >
@@ -189,9 +187,9 @@ import { siteConfig } from "../config";
       )
     }
     {
-      siteConfig.social?.linkedin && (
+      social?.linkedin && (
         <a
-          href={siteConfig.social.linkedin}
+          href={social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -222,9 +220,9 @@ import { siteConfig } from "../config";
       )
     }
     {
-      siteConfig.social?.github && (
+      social?.github && (
         <a
-          href={siteConfig.social.github}
+          href={social.github}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
