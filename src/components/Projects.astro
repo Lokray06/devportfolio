@@ -8,7 +8,7 @@ const { t, accentColor, hasProjects } = Astro.props;
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+            <h2 class="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold text-gray-900">
               Projects
             </h2>
             <div
@@ -79,9 +79,7 @@ const { t, accentColor, hasProjects } = Astro.props;
                           </h3>
                         </div>
 
-                        <p
-                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
-                        >
+                        <p class={`text-sm sm:text-md md:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}>
                           {project.description}
                         </p>
 
