@@ -59,6 +59,18 @@
       },
       {
         "category": "Personal",
+        "status": "En desarrollo",
+        "name": "catlr",
+        "description": "Una potente herramienta multiplataforma de línea de comandos hecha en C++ para auditar directorios de proyectos. catlr lista inteligentemente estructuras de directorios y muestra el contenido de los archivos aplicando automáticamente las reglas de .gitignore, ofreciendo filtrado específico de inclusión/exclusión y recurriendo a implementaciones nativas en C++ cuando herramientas externas como 'bat' o 'tree' no están disponibles. Diseñada para la revisión de código y la exploración de proyectos, garantiza un comportamiento consistente en Linux, macOS y Windows.",
+        "skills": [
+          "C++",
+          "Filesystem",
+          "CLI Tools"
+        ],
+        "link": "https://github.com/Lokray06/catlr"
+      },
+      {
+        "category": "Personal",
         "status": "Inactivo",
         "name": "Minocraft",
         "description": "Un motor voxel estilo Minecraft desarrollado en Java usando LWJGL. El proyecto se centra en optimizar los componentes esenciales para lograr un rendimiento superior al del juego original, replicando su entorno sandbox basado en bloques.",

@@ -24,7 +24,7 @@ const { t, accentColor, hasProjects } = Astro.props;
                 const linkProps = project.link
                   ? {
                       href: project.link,
-                      target: "_blank",
+                      target: `${project.link == "NotPublic" ? "_self" : `_blank`}`,
                       rel: "noopener noreferrer",
                     }
                   : {};
