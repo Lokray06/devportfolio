@@ -21,11 +21,26 @@
   },
   "skills_title": "Habilidades",
   "skills": [
-    { "name": "Inglés", "experienceYears": "C1" },
-    { "name": "Java", "experienceYears": "2a" },
-    { "name": "C#", "experienceYears": "3a" },
-    { "name": "Sistemas Linux", "experienceYears": "3a" },
-    { "name": "Python", "experienceYears": "3a" }
+    {
+      "name": "Inglés",
+      "experienceYears": "C1"
+    },
+    {
+      "name": "Java",
+      "experienceYears": "2a"
+    },
+    {
+      "name": "C#",
+      "experienceYears": "3a"
+    },
+    {
+      "name": "Sistemas Linux",
+      "experienceYears": "3a"
+    },
+    {
+      "name": "Python",
+      "experienceYears": "3a"
+    }
   ],
   "projects": {
     "title": "Proyectos",
@@ -34,8 +49,88 @@
         "category": "Personal",
         "status": "En desarrollo",
         "name": "Nebula",
-        "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en lenguajes como Java y C#, con el objetivo de lograr un rendimiento nativo sin una pesada máquina virtual.",
-        "skills": ["Java", "LLVM", "C++"]
+        "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en Java y C#, con el objetivo de lograr rendimiento nativo sin depender de una máquina virtual pesada.",
+        "link": "https://github.com/Lokray06/nebula-lang",
+        "skills": [
+          "Java",
+          "LLVM",
+          "C++"
+        ]
+      },
+      {
+        "category": "Personal",
+        "status": "En desarrollo",
+        "name": "catlr",
+        "description": "Una potente herramienta multiplataforma de línea de comandos hecha en C++ para auditar directorios de proyectos. catlr lista inteligentemente estructuras de directorios y muestra el contenido de los archivos aplicando automáticamente las reglas de .gitignore, ofreciendo filtrado específico de inclusión/exclusión y recurriendo a implementaciones nativas en C++ cuando herramientas externas como 'bat' o 'tree' no están disponibles. Diseñada para la revisión de código y la exploración de proyectos, garantiza un comportamiento consistente en Linux, macOS y Windows.",
+        "skills": [
+          "C++",
+          "Filesystem",
+          "CLI Tools"
+        ],
+        "link": "https://github.com/Lokray06/catlr"
+      },
+      {
+        "category": "Personal",
+        "status": "Inactivo",
+        "name": "Minocraft",
+        "description": "Un motor voxel estilo Minecraft desarrollado en Java usando LWJGL. El proyecto se centra en optimizar los componentes esenciales para lograr un rendimiento superior al del juego original, replicando su entorno sandbox basado en bloques.",
+        "link": "https://github.com/Lokray06/Minocraft",
+        "skills": [
+          "Java",
+          "OpenGL"
+        ]
+      },
+      {
+        "category": "Personal",
+        "status": "Completado",
+        "name": "CRIS",
+        "description": "Herramienta de esteganografía desarrollada en Python que oculta y recupera archivos dentro de imágenes utilizando cifrado RSA. El proyecto implementa un método para cifrar una semilla de mezcla de datos que asegura una recuperación segura.",
+        "link": "https://github.com/Lokray06/CRIS",
+        "skills": [
+          "Python",
+          "Criptografía",
+          "Esteganografía"
+        ]
+      },
+      {
+        "category": "Personal",
+        "status": "En desarrollo",
+        "name": "Arcane",
+        "description": "Un motor de videojuegos en 3D creado desde cero en Java con LWJGL. El motor incluye un sistema ECS (entity-component system) personalizado y renderizado en tiempo real, ofreciendo una base ligera para el desarrollo de videojuegos.",
+        "link": "https://github.com/Lokray06/Arcane",
+        "skills": [
+          "Java",
+          "OpenGL",
+          "LWJGL",
+          "GLSL"
+        ]
+      },
+      {
+        "category": "Profesional",
+        "status": "Completado",
+        "name": "Suite de Aplicaciones ENCASA",
+        "description": "Lideré el desarrollo de una suite de 3 aplicaciones para optimizar el proceso de gestión de incidencias de la empresa. La solución se integró con sus fuentes de datos existentes y proporcionó una API REST para visualizaciones externas.",
+        "link": "NotPublic",
+        "skills": [
+          "AutoHotkey",
+          "PHP",
+          "VBA",
+          "APIs"
+        ]
+      },
+      {
+        "category": "Profesional",
+        "status": "Completado",
+        "name": "Aplicación de Automatización EPI",
+        "description": "Desarrollé una aplicación de servidor local usando tecnologías web para automatizar la entrega de EPIs a empleados. El sistema genera y firma digitalmente documentos PDF, agilizando un proceso empresarial crítico.",
+        "link": "NotPublic",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "PDF-Lib"
+        ]
       }
     ]
   },
@@ -48,31 +143,52 @@
         "dateRange": "Jun 2024 - Ago 2024",
         "bullets": [
           "Construí y mantuve por mi cuenta un conjunto de aplicaciones personalizadas para gestionar informes internos de incidencias, comunicaciones con proveedores y control de calidad",
-          "Aproveché los datos existentes de la empresa en Excel para construir una fuente de datos primaria para un conjunto de aplicaciones, asegurando la continuidad y accesibilidad de los datos",
-          "Desarrollé una aplicación de servidor local usando tecnologías web para automatizar el proceso de firma y generación de documentos PDF para EPIs de trabajadores"
+          "Aproveché los datos existentes en Excel para construir una fuente de datos primaria para una suite de aplicaciones, garantizando continuidad y accesibilidad",
+          "Desarrollé una aplicación de servidor local usando tecnologías web para automatizar el proceso de firma y generación de documentos PDF para EPIs"
+        ]
+      },
+      {
+        "company": "ENCASA (Prácticas)",
+        "title": "Técnico de Sistemas en Prácticas",
+        "dateRange": "May 2024 - Jun 2024",
+        "bullets": [
+          "Lideré el desarrollo de una suite de 3 aplicaciones para optimizar el proceso de registro y comunicación de incidencias",
+          "Diseñé una solución integrada con los sistemas heredados de la empresa que además proporcionaba una API REST para visualizaciones externas",
+          "Implementé nuevas funcionalidades y amplié el sistema según las necesidades cambiantes del negocio"
+        ]
+      },
+      {
+        "company": "Vinilo Sevilla S.L. (Prácticas)",
+        "title": "Técnico de Redes en Prácticas",
+        "dateRange": "May 2022 - Jul 2022",
+        "bullets": [
+          "Desarrollé la página web de la empresa con WordPress",
+          "Mantuve la infraestructura de red de la empresa",
+          "Desarrollé aplicaciones de automatización en Python para SEO y posicionamiento local",
+          "Obtuve experiencia práctica en instalación de vinilos a través de múltiples proyectos para clientes como Shell, Real Maestranza de Sevilla, Real Club El Mercantil, entre otros"
         ]
       }
     ]
   },
   "education": {
-    "title": "Educación",
+    "title": "Estudios",
     "items": [
       {
-        "school": "Altair | ES",
+        "school": "Altair",
         "degree": "Grado Medio en Sistemas Microinformáticos y Redes",
         "dateRange": "22/23 - 23/24",
         "achievements": [
           "Graduado con 9.2",
-          "Delegado representante de todos los alumnos de FP de la escuela"
+          "Delegado representante de todos los alumnos de Formación Profesional del centro"
         ]
       },
       {
-        "school": "Altair | ES",
+        "school": "Altair",
         "degree": "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
         "dateRange": "24/25 - Actual",
         "achievements": [
-          "Completado primer año con una nota media de 9.8, demostrando un fuerte dominio de los conceptos básicos",
-          "Nombrado por los profesores para mentorizar a estudiantes más jóvenes, ayudándoles con las tareas y mejorando su comprensión de temas complejos"
+          "Primer año completado con una nota media de 9.8, demostrando un sólido dominio de los conceptos base",
+          "Seleccionado por los profesores para mentorizar a alumnos más jóvenes, ayudándoles a comprender temas complejos"
         ]
       }
     ]
@@ -82,7 +198,7 @@
   },
   "notPublic": {
     "title": "Información del Proyecto Oculta",
-    "message": "Este proyecto no está disponible para visualización pública. Contiene información propietaria de la empresa y datos sensibles que no pueden ser compartidos. Para un resumen detallado de mis contribuciones y el alcance técnico del proyecto, por favor consulte la descripción proporcionada en mi portfolio.",
+    "message": "Este proyecto no está disponible para visualización pública. Contiene información propietaria y datos sensibles que no pueden compartirse. Para una descripción detallada de mis contribuciones y del alcance técnico del proyecto, por favor revisa la información incluida en mi portfolio.",
     "button": "Volver al portfolio"
   }
 }
