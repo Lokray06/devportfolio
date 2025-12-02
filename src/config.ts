@@ -3,7 +3,7 @@ export const siteConfig = {
   accentColor: "#1d4ed8",
   social: {
     email: "contact@jpgp.es",
-    linkedin: "https://linkedin.com/in/yourprofile",
+    linkedin: "https://www.linkedin.com/in/juan-pablo-garrido-portilla-42674b29a/",
     github: "https://github.com/Lokray06",
   },
 };
