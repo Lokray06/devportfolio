@@ -4,6 +4,6 @@ export const siteConfig = {
   social: {
     email: "contact@jpgp.es",
     linkedin: "https://www.linkedin.com/in/juan-pablo-garrido-portilla-42674b29a/",
-    github: "https://github.com/Lokray06",
+    github: "https://github.com/juanpagp",
   },
 };

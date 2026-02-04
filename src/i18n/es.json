@@ -50,7 +50,7 @@
         "status": "En desarrollo",
         "name": "Nebula",
         "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en Java y C#, con el objetivo de lograr rendimiento nativo sin depender de una máquina virtual pesada.",
-        "link": "https://github.com/Lokray06/nebula-lang",
+        "link": "https://github.com/juanpagp/nebula-lang",
         "skills": [
           "Java",
           "LLVM",
@@ -67,14 +67,14 @@
           "Filesystem",
           "CLI Tools"
         ],
-        "link": "https://github.com/Lokray06/catlr"
+        "link": "https://github.com/juanpagp/catlr"
       },
       {
         "category": "Personal",
         "status": "Inactivo",
         "name": "Minocraft",
         "description": "Un motor voxel estilo Minecraft desarrollado en Java usando LWJGL. El proyecto se centra en optimizar los componentes esenciales para lograr un rendimiento superior al del juego original, replicando su entorno sandbox basado en bloques.",
-        "link": "https://github.com/Lokray06/Minocraft",
+        "link": "https://github.com/juanpagp/Minocraft",
         "skills": [
           "Java",
           "OpenGL"
@@ -85,7 +85,7 @@
         "status": "Completado",
         "name": "CRIS",
         "description": "Herramienta de esteganografía desarrollada en Python que oculta y recupera archivos dentro de imágenes utilizando cifrado RSA. El proyecto implementa un método para cifrar una semilla de mezcla de datos que asegura una recuperación segura.",
-        "link": "https://github.com/Lokray06/CRIS",
+        "link": "https://github.com/juanpagp/CRIS",
         "skills": [
           "Python",
           "Criptografía",
@@ -97,7 +97,7 @@
         "status": "En desarrollo",
         "name": "Arcane",
         "description": "Un motor de videojuegos en 3D creado desde cero en Java con LWJGL. El motor incluye un sistema ECS (entity-component system) personalizado y renderizado en tiempo real, ofreciendo una base ligera para el desarrollo de videojuegos.",
-        "link": "https://github.com/Lokray06/Arcane",
+        "link": "https://github.com/juanpagp/Arcane",
         "skills": [
           "Java",
           "OpenGL",
