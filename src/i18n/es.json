@@ -50,7 +50,7 @@
         "status": "En desarrollo",
         "name": "Nebula",
         "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en Java y C#, con el objetivo de lograr rendimiento nativo sin depender de una máquina virtual pesada.",
-        "link": "https://github.com/juanpagp/nebula-lang",
+        "link": "https://github.com/juanpagp/nebula",
         "skills": [
           "Java",
           "LLVM",
