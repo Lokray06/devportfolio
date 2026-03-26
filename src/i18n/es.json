@@ -17,7 +17,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "bio": "Soy un estudiante fullstack de 19 años residente en España. Pero eso no me impide explorar otros campos de la programación que me apasionan más, como el desarrollo de sistemas, gamedev, gráficos por computadora, etc."
+    "bio": "Tengo 19 años y soy estudiante de desarrollo fullstack en España, pero también me gusta explorar otras áreas de la programación que me llaman más, como desarrollo de sistemas, gamedev, programación de gráficos, etc."
   },
   "skills_title": "Habilidades",
   "skills": [
@@ -49,12 +49,13 @@
         "category": "Personal",
         "status": "En desarrollo",
         "name": "Nebula",
-        "description": "Un lenguaje de programación orientado a objetos con un compilador personalizado que traduce el código fuente a LLVM IR. Como una exploración en el diseño de lenguajes, Nebula combina una sintaxis limpia y de alto nivel, inspirada en Java y C#, con el objetivo de lograr rendimiento nativo sin depender de una máquina virtual pesada.",
-        "link": "https://github.com/juanpagp/nebula",
+        "description": "Un lenguaje de programación de sistemas con tipado estático que garantiza seguridad de memoria en tiempo de compilación, sin necesidad de borrow checker ni recolector de basura. Lo consigue mediante análisis deterministas que rastrean la validez de los datos y gestionan automáticamente la liberación de memoria, permitiendo aliasing seguro, rendimiento predecible y sin procesos adicionales en tiempo de ejecución. Inspirado en lenguajes como Rust y C#, Nebula combina una sintaxis limpia y de alto nivel con el poder y control de la programación de bajo nivel, siendo ideal para desarrollo de sistemas, motores de videojuegos y aplicaciones de rendimiento crítico.",
+        "link": "https://github.com/nebula-language/nebula",
         "skills": [
           "Java",
           "LLVM",
-          "C++"
+          "Compiladores",
+          "C"
         ]
       },
       {
@@ -84,7 +85,7 @@
         "category": "Personal",
         "status": "Completado",
         "name": "CRIS",
-        "description": "Herramienta de esteganografía desarrollada en Python que oculta y recupera archivos dentro de imágenes utilizando cifrado RSA. El proyecto implementa un método para cifrar una semilla de mezcla de datos que asegura una recuperación segura.",
+        "description": "Una herramienta de esteganografía desarrollada en Python que oculta y recupera archivos dentro de imágenes utilizando cifrado RSA. El proyecto implementa un método para cifrar una semilla de mezcla de datos que asegura una recuperación segura.",
         "link": "https://github.com/juanpagp/CRIS",
         "skills": [
           "Python",

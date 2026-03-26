@@ -17,7 +17,7 @@
   },
   "about": {
     "title": "About Me",
-    "bio": "I'm a 19yo fullstack student based in Spain. But that doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc."
+    "bio": "I'm a 19yo Spanish fullstack student based. But that doesn't stop me from exploring other programming fields I'm more passionate about, like systems development, gamedev, computer graphics, etc."
   },
   "skills_title": "Skills",
   "skills": [
@@ -49,13 +49,14 @@
         "category": "Personal",
         "status": "In development",
         "name": "Nebula",
-        "description": "An object-oriented programming language with a custom compiler that translates source code to LLVM IR. As an exploration into language design, Nebula combines a clean, high-level syntax—inspired by languages like Java and C#—with the goal of achieving native performance without a heavy virtual machine.",
+        "description": "A statically typed systems programming language that guarantees memory safety at compile time without a borrow checker or garbage collector. It achieves this through deterministic compile-time analyses that track object validity and automatically insert precise deallocation instructions, enabling safe aliasing, predictable performance, and zero runtime overhead. Inspired by languages like Rust and C#, Nebula combines a clean, high-level syntax with the power and control of low-level programming, making it ideal for systems development, game engines, and performance-critical applications.",
         "skills": [
           "Java",
           "LLVM",
-          "C++"
+          "Compilers",
+          "C"
         ],
-        "link": "https://github.com/juanpagp/nebula"
+        "link": "https://github.com/nebula-language/nebula"
       },
       {
         "category": "Personal",
