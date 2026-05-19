@@ -84,7 +84,9 @@ html.theme-transitioning *::after {
 }
 
 .font-emoji {
-  font-family: 'Apple Color Emoji', sans-serif;
+  /* Use the OS native emoji font — no file download needed.
+     Each platform already ships a full color emoji font built-in. */
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', emoji;
 }
 
 @font-face {
@@ -95,13 +97,7 @@ html.theme-transitioning *::after {
 }
 
 @font-face {
-  font-family: 'Apple Color Emoji';
-  src: url('/fonts/AppleColorEmoji.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
 
-@font-face {
   font-family: 'Cascadia Code';
   src: url('/fonts/CascadiaCode-Regular.otf') format('opentype');
   font-weight: 400;
