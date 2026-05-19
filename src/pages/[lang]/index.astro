@@ -39,6 +39,19 @@ import "../../styles/global.css";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>{t.site.name}</title>
 
+    <!-- Theme initialisation (must run before first paint to prevent flash) -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3YEJ0MGBF"></script>
     <script is:inline lang="ts">
@@ -146,9 +159,15 @@ import "../../styles/global.css";
           );
         }
 
-        // Initialize and update height on resize
-        updateBodyHeight();
-        window.addEventListener("resize", updateBodyHeight);
+        // ResizeObserver fires on ANY size change to <main>: window resize,
+        // font load reflow, image load, dynamic content — all covered.
+        // This fixes the "can't reach the bottom on first load" bug caused by
+        // custom fonts reflowing the page taller after the initial measurement.
+        const ro = new ResizeObserver(updateBodyHeight);
+        ro.observe(main);
+
+        // Also re-measure once fonts are fully loaded (belt-and-suspenders)
+        document.fonts.ready.then(updateBodyHeight);
 
         // Capture actual scroll position
         window.addEventListener("scroll", () => {
@@ -162,16 +181,21 @@ import "../../styles/global.css";
           dx = li(dx, sx, 0.07);
           dy = li(dy, sy, 0.07);
 
+          // Snap to exact target when very close — prevents asymptotic drift that
+          // stops the footer from being fully visible at the bottom of the page.
+          if (Math.abs(dx - sx) < 0.5) dx = sx;
+          if (Math.abs(dy - sy) < 0.5) dy = sy;
+
           // Apply the transform to the main content
           main.style.transform = `translate3d(-${dx}px, -${dy}px, 0)`;
 
-          // Update header based on scroll position (keep this logic)
+          // Update header based on scroll position
           const header = document.getElementById("header");
           if (header) {
             if (dy > 100) {
-              header.classList.add("backdrop-blur-sm");
+              header.classList.add("backdrop-blur-sm", "scrolled");
             } else {
-              header.classList.remove("backdrop-blur-sm");
+              header.classList.remove("backdrop-blur-sm", "scrolled");
             }
           }
 

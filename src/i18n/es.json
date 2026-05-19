@@ -11,7 +11,8 @@
     "education": "Estudios"
   },
   "hero": {
-    "greeting": "¡Hola! 👋",
+    "greeting": "¡Hola!",
+    "greeting_emoji": "👋",
     "intro": "Soy",
     "title": "Programador | Estudiante Fullstack"
   },

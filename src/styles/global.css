@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   /* Keep native smooth behavior for anchor links on mobile */
   scroll-behavior: smooth;
@@ -11,7 +14,45 @@ body {
   margin: 0;
   overflow-x: hidden;
   /* Ensure mobile body height is natural if smooth scroll is off */
-  height: auto; 
+  height: auto;
+  background-color: #ffffff;
+  color: #111827;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #030712; /* gray-950 */
+  color: #f9fafb; /* gray-50 */
+  color-scheme: dark;
+}
+
+/* Header scrolled-state backgrounds (toggled by JS via .scrolled class) */
+#header.scrolled {
+  background-color: rgb(255 255 255 / 90%);
+}
+
+html.dark #header.scrolled {
+  background-color: rgb(3 7 18 / 90%);
+}
+
+/*
+  Theme toggle: while the .theme-transitioning class is present on <html>
+  (added by JS for ~350ms around the toggle), force every element to use the
+  same transition duration so the whole page flips in unison.
+  !important is intentional — it overrides per-component transition-colors
+  and transition-all utilities that would otherwise run at different speeds.
+*/
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease !important;
+  transition-delay: 0s !important;
 }
 
 /* --- Smooth Scroll Activation Styles (Desktop Only) --- */
@@ -42,9 +83,20 @@ body {
   font-family: 'Poly Sans', sans-serif;
 }
 
+.font-emoji {
+  font-family: 'Apple Color Emoji', sans-serif;
+}
+
 @font-face {
   font-family: 'Poly Sans';
   src: url('/fonts/polysanstrial-bulky.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apple Color Emoji';
+  src: url('/fonts/AppleColorEmoji.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
