@@ -2,7 +2,12 @@
   "site": {
     "name": "Juanpa",
     "title": "Programador | Estudiante Fullstack",
-    "description": "Portfolio web de Juanpa"
+    "description": "Portfolio web de Juanpa",
+    "seoTitle": "Juanpa | Desarrollador Full-Stack y de Sistemas (C++, Java, Motores de Juegos)",
+    "seoDescription": "Desarrollador full-stack y de sistemas en España, especializado en compiladores, motores de videojuegos y software de bajo nivel. Proyectos: lenguaje de programación, motor voxel y herramientas CLI.",
+    "keywords": "desarrollador, programación de sistemas, C++, Java, compilador, motor de videojuegos, portfolio, España",
+    "ogTitle": "Juanpa | Desarrollador de Sistemas y Full-Stack",
+    "ogDescription": "Desarrollador de compiladores, motores de videojuegos y sistemas de bajo nivel con Java, C++ y Python."
   },
   "nav": {
     "about": "Sobre mí",

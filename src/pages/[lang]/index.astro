@@ -15,6 +15,9 @@ const t = getTranslations(Astro.currentLocale);
 const hasProjects = t.projects.items && t.projects.items.length > 0;
 const hasExperience = t.experience.items && t.experience.items.length > 0;
 const hasEducation = t.education.items && t.education.items.length > 0;
+const baseUrl = "https://jpgp.es";
+const locale = Astro.currentLocale === "es" ? "es" : "en";
+const canonicalUrl = locale === "es" ? `${baseUrl}/es/` : `${baseUrl}/`;
 
 // Import components
 import Header from "../../components/Header.astro";
@@ -34,10 +37,23 @@ import "../../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={t.site.description} />
+    <title>{t.site.seoTitle}</title>
+    <meta name="description" content={t.site.seoDescription} />
+    <meta name="keywords" content={t.site.keywords} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:title" content={t.site.ogTitle} />
+    <meta property="og:description" content={t.site.ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={t.site.name} />
+    <meta property="og:locale" content={locale === "es" ? "es_ES" : "en_US"} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.site.ogTitle} />
+    <meta name="twitter:description" content={t.site.ogDescription} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>{t.site.name}</title>
 
     <!-- Theme initialisation (must run before first paint to prevent flash) -->
     <script is:inline>

@@ -2,7 +2,12 @@
   "site": {
     "name": "Juanpa",
     "title": "Programmer | Fullstack student",
-    "description": "Portfolio website of Juanpa"
+    "description": "Portfolio website of Juanpa",
+    "seoTitle": "Juanpa | Full-Stack & Systems Developer (C++, Java, Game Engines)",
+    "seoDescription": "Full-stack and systems developer from Spain specializing in compilers, game engines, and low-level systems. Projects include a custom programming language, voxel engine, and CLI tools.",
+    "keywords": "developer, systems programming, C++, Java, compiler, game engine, portfolio, Spain",
+    "ogTitle": "Juanpa | Systems & Full-Stack Developer",
+    "ogDescription": "Compiler, game engine, and systems developer building low-level software in Java, C++, and Python."
   },
   "nav": {
     "about": "About",
